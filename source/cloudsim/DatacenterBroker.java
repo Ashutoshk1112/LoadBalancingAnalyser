@@ -7,7 +7,6 @@
  * Copyright (c) 2009, The University of Melbourne, Australia
  */
 
-
 package cloudsim;
 
 import java.util.Iterator;

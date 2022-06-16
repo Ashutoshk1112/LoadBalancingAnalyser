@@ -86,4 +86,7 @@ public interface Constants {
 	final String LOAD_BALANCE_ACTIVE = "Equally Spread Current Execution Load";
 	final String LOAD_BALANCE_THROTTLED = "Throttled";
 	final String LOAD_BALANCE_ANT_COLONY = "Ant Colony";
+	final String LOAD_BALANCE_HONEY_COLONY = "Honey Bee LoadBalancer";
+	final String LOAD_BALANCE_PSO = "PSO LoadBalancer";
+
 }

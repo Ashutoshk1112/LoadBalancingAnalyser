@@ -99,12 +99,26 @@ public class DatacenterController extends DatacenterBroker implements GeoLocatab
 		waitingQueue = Collections.synchronizedList(new LinkedList<InternetCloudlet>());
 		processingCloudletStatuses = new HashMap<Integer, Long[]>();
 		
-		if (loadBalancePolicy.equals(Constants.LOAD_BALANCE_ACTIVE)){
-			this.loadBalancer = new ActiveVmLoadBalancer(this);}
-		 else if (loadBalancePolicy.equals(Constants.LOAD_BALANCE_POLICY_RR)){
-			this.loadBalancer = new RoundRobinVmLoadBalancer(vmStatesList);}
-		 else if (loadBalancePolicy.equals(Constants.LOAD_BALANCE_ANT_COLONY)){
-				this.loadBalancer = new AntColonyVmLoadBalancer(this);}
+		if (loadBalancePolicy.equals(Constants.LOAD_BALANCE_ACTIVE))
+		{
+			this.loadBalancer = new ActiveVmLoadBalancer(this);
+			}
+		 else if (loadBalancePolicy.equals(Constants.LOAD_BALANCE_POLICY_RR))
+		 {
+			this.loadBalancer = new RoundRobinVmLoadBalancer(vmStatesList);
+			}
+		 else if (loadBalancePolicy.equals(Constants.LOAD_BALANCE_ANT_COLONY))
+		 {
+				this.loadBalancer = new AntColonyVmLoadBalancer(this);
+				}
+		 else if (loadBalancePolicy.equals("Honey Bee LoadBalancer"))
+		 {
+				this.loadBalancer = new honeyBee(this);
+				}
+			 else if (loadBalancePolicy.equals("PSO LoadBalancer"))
+			 {
+					this.loadBalancer = new PSOVmLoadBalancer(this);
+					}
             else { //i.e. if (loadBalancePolicy.equals(Constants.LOAD_BALANCE_THROTTLED))
 			this.loadBalancer = new ThrottledVmLoadBalancer(this);
 		}
